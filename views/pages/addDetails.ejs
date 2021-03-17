@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .home {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 10vw 15vw;
+        }
+
+        .home div {
+            background-color: azure;
+            color: blueviolet;
+            font-size: larger;
+            padding: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="home">
+
+
+        <p>TotalConfirmed: <%=element.TotalConfirmed%>
+        </p>
+        <p>TotalDeaths: <%=element.TotalDeaths%>
+        </p>
+        <p>TotalRecovered: <%=element.TotalRecovered%>
+        </p>
+        <p>TotalRecovered: <%=element.Date%>
+        </p>
+
+
+        <form action="/updateDetails/<%=element.id%>?_method=PUT" method="POST">
+            <input type="text" name="TotalDeaths" value="<%=element.TotalDeaths%>">
+            <input type="text" name="TotalRecovered" value="<%=element.TotalRecovered%>">
+            <input type="text" name="Date" value="<%=element.Date%>">
+            <input type="text" name="Country" value="<%=element.Country%>">
+            <input type="submit" value="UPDATE">
+        </form>
+
+        <form action="/deleteDetails/<%=element.id%>?_method=DELETE" method="POST">
+            <input type="submit" value="DELETE">
+        </form>
+
+
+    </div>
+
+
+</body>
+
+</html>
